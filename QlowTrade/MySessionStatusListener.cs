@@ -13,6 +13,7 @@ namespace QlowTrade
         
         private O2GSessionStatusCode mCode = O2GSessionStatusCode.Unknown;
         private O2GSession mSession = null;
+        private O2GResponse mResponse;
 
         private string errorStr;
         private String mDBName = "";
@@ -55,6 +56,28 @@ namespace QlowTrade
                 else
                     mSession.setTradingSession(SessionID, mPin);
             }
+        }
+        public void onRequestCompleted(String requestID, O2GResponse response)
+        {
+            O2GResponseReaderFactory responseFactory = mSession.getResponseReaderFactory();
+            if(responseFactory!=null)
+            {
+                O2GMarketDataSnapshotResponseReader reader = responseFactory.createMarketDataSnapshotReader(response);
+                for(int i = 0; i< reader.Count; i++)
+                {
+
+                    System.Console.WriteLine("\n\tAskOpen =" + reader.getAskOpen(i) +
+                                      "\n\tAskHigh = " + reader.getAskHigh(i) +
+                                      "\n\tAskLow = " + reader.getAskLow(i) +
+                                      "\n\tAskClose =" + reader.getAskClose(i));
+                }
+            }
+        }
+
+        internal O2GResponse getResponse()
+        {
+            return mResponse;
+            //throw new NotImplementedException();
         }
     }
 }

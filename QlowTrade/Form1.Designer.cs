@@ -31,6 +31,7 @@
             this.ConnectBt = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.disconnectBt = new System.Windows.Forms.Button();
+            this.getHistoryDataBt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ConnectBt
@@ -62,11 +63,22 @@
             this.disconnectBt.UseVisualStyleBackColor = true;
             this.disconnectBt.Click += new System.EventHandler(this.disconnectBt_Click);
             // 
+            // getHistoryDataBt
+            // 
+            this.getHistoryDataBt.Location = new System.Drawing.Point(344, 180);
+            this.getHistoryDataBt.Name = "getHistoryDataBt";
+            this.getHistoryDataBt.Size = new System.Drawing.Size(161, 23);
+            this.getHistoryDataBt.TabIndex = 3;
+            this.getHistoryDataBt.Text = "Get History Data";
+            this.getHistoryDataBt.UseVisualStyleBackColor = true;
+            this.getHistoryDataBt.Click += new System.EventHandler(this.getHistoryDataBt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 261);
+            this.Controls.Add(this.getHistoryDataBt);
             this.Controls.Add(this.disconnectBt);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.ConnectBt);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button ConnectBt;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Button disconnectBt;
+        private System.Windows.Forms.Button getHistoryDataBt;
     }
 }
 
